@@ -1,19 +1,16 @@
 package com.javafaktura.wastesegregation.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "waste_batch")
+@Entity
 public class WasteBatch {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy="wasteBatch", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "wasteBatch", cascade = CascadeType.ALL)
     private List<Waste> wastes;
 
     public Long getId() {
@@ -30,5 +27,13 @@ public class WasteBatch {
 
     public void setWastes(List<Waste> wastes) {
         this.wastes = wastes;
+    }
+
+    @Override
+    public String toString() {
+        return "WasteBatch{" +
+                "id=" + id +
+                ", wastes=" + wastes +
+                '}';
     }
 }
