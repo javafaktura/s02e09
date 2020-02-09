@@ -3,6 +3,7 @@ package com.javafaktura.wastesegregation.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 public class Waste {
@@ -20,7 +21,9 @@ public class Waste {
     @Column(name = "waste_batch_id", insertable = false, updatable = false)
     private Long wasteBatchId;
 
-    private String description;
+    private WasteType type;
+
+    private BigDecimal weight;
 
     public Long getId() {
         return id;
@@ -38,12 +41,20 @@ public class Waste {
         this.wasteBatch = wasteBatch;
     }
 
-    public String getDescription() {
-        return description;
+    public WasteType getType() {
+        return type;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setType(WasteType type) {
+        this.type = type;
+    }
+
+    public BigDecimal getWeight() {
+        return weight;
+    }
+
+    public void setWeight(BigDecimal weight) {
+        this.weight = weight;
     }
 
     public Long getWasteBatchId() {
@@ -58,8 +69,10 @@ public class Waste {
     public String toString() {
         return "Waste{" +
                 "id=" + id +
+                ", wasteBatch=" + wasteBatch +
                 ", wasteBatchId=" + wasteBatchId +
-                ", description='" + description + '\'' +
+                ", type=" + type +
+                ", weight=" + weight +
                 '}';
     }
 }

@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PostgresDemoApplication {
+public class WasteSegregationApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PostgresDemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(WasteSegregationApplication.class, args);
+    }
 
 }
