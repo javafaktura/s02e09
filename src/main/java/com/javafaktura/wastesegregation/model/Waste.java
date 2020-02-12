@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @Entity
 public class Waste {
@@ -63,6 +64,23 @@ public class Waste {
 
     public void setWasteBatchId(Long wasteBatchId) {
         this.wasteBatchId = wasteBatchId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Waste)) return false;
+        Waste waste = (Waste) o;
+        return Objects.equals(getId(), waste.getId()) &&
+                Objects.equals(getWasteBatch(), waste.getWasteBatch()) &&
+                Objects.equals(getWasteBatchId(), waste.getWasteBatchId()) &&
+                getType() == waste.getType() &&
+                Objects.equals(getWeight(), waste.getWeight());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getWasteBatch(), getWasteBatchId(), getType(), getWeight());
     }
 
     @Override

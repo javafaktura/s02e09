@@ -18,6 +18,6 @@ public class WasteValuationController {
 
     @RequestMapping("/wasteprice")
     public @ResponseBody BigDecimal getWastePrice() {
-        return service.getPriceOfWasteType();
+        return service.getPriceOfPlasticWasteType();
     }
 }

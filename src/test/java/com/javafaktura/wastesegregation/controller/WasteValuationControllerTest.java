@@ -15,9 +15,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
-
 @WebMvcTest(WasteValuationController.class)
 class WasteValuationControllerTest {
 
@@ -29,7 +26,7 @@ class WasteValuationControllerTest {
 
     @Test
     public void greetingShouldReturnMessageFromService() throws Exception {
-        when(service.getPriceOfWasteType()).thenReturn(BigDecimal.ZERO);
+        when(service.getPriceOfPlasticWasteType()).thenReturn(BigDecimal.ZERO);
         this.mockMvc.perform(get("/wasteprice")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string("0"));
     }
