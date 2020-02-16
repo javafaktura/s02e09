@@ -87,7 +87,6 @@ public class Waste {
     public String toString() {
         return "Waste{" +
                 "id=" + id +
-                ", wasteBatch=" + wasteBatch +
                 ", wasteBatchId=" + wasteBatchId +
                 ", type=" + type +
                 ", weight=" + weight +

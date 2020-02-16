@@ -17,7 +17,7 @@ public class SegregationFacilityController {
     @Autowired
     private WasteBatchRepository wasteBatchRepository;
 
-    @GetMapping("/waste_batch/{batch_id}")
+    @GetMapping("/waste_batch/")
     public ResponseEntity<WasteBatch> getWasteBatchById(@RequestParam Long batchId) {
         var wasteBatch = wasteBatchRepository.findById(batchId)
                 .orElseThrow(() -> new ResourceNotFoundException("WasteBatch not found with id " + batchId));
@@ -25,7 +25,7 @@ public class SegregationFacilityController {
         return ResponseEntity.ok().body(wasteBatch);
     }
 
-    @PostMapping("/waste_batch/")
+    @PostMapping(value = "/waste_batch/", consumes = "application/json")
     public WasteBatch addWasteBatch(@Valid @RequestBody WasteBatch wasteBatch) {
         LOG.debug("addWasteBatch: [{}]", wasteBatch);
 
@@ -33,8 +33,7 @@ public class SegregationFacilityController {
             waste.setWasteBatch(wasteBatch);
         }
 
-        wasteBatch = wasteBatchRepository.save(wasteBatch);
-        return wasteBatch;
+        return wasteBatchRepository.save(wasteBatch);
     }
 
 }
