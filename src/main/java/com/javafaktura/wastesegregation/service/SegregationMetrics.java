@@ -29,4 +29,5 @@ public class SegregationMetrics {
                 .map(Waste::getWeight)
                 .reduce(ZERO, BigDecimal::add);
     }
+
 }

@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+/*model for single Waste containing information about waste type and weight*/
 @Entity
 public class Waste {
 

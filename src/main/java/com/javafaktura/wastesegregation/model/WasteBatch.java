@@ -3,6 +3,7 @@ package com.javafaktura.wastesegregation.model;
 import javax.persistence.*;
 import java.util.List;
 
+/* model for waste transport providing list of particular segregated waste */
 @Entity
 public class WasteBatch {
 

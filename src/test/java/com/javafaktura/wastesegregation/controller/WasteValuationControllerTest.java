@@ -25,7 +25,7 @@ class WasteValuationControllerTest {
     private WasteValuationService service;
 
     @Test
-    public void greetingShouldReturnMessageFromService() throws Exception {
+    public void should_return_price_waste() throws Exception {
         when(service.getPriceOfPlasticWasteType()).thenReturn(BigDecimal.ZERO);
         this.mockMvc.perform(get("/wasteprice")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string("0"));

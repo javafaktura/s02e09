@@ -17,6 +17,10 @@ public class SegregationFacilityController {
     @Autowired
     private WasteBatchRepository wasteBatchRepository;
 
+    public SegregationFacilityController(WasteBatchRepository wasteBatchRepository) {
+        this.wasteBatchRepository = wasteBatchRepository;
+    }
+
     @GetMapping("/waste_batch/")
     public ResponseEntity<WasteBatch> getWasteBatchById(@RequestParam Long batchId) {
         var wasteBatch = wasteBatchRepository.findById(batchId)

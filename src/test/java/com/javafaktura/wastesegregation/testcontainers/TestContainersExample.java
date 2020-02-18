@@ -17,7 +17,9 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
+//todo - check wy can we use Junit5 here
 @RunWith(SpringJUnit4ClassRunner.class)
+//@ExtendWith(SpringExtension.class)
 @ContextConfiguration(initializers = {TestContainersExample.Initializer.class})
 public class TestContainersExample {
 
@@ -42,7 +44,7 @@ public class TestContainersExample {
     private WasteRepository wasteRepository;
 
     @Test
-    public void should_findSavedWasteEntity(){
+    public void should_findSavedWasteEntity() {
         //given
         Waste savedWaste = wasteRepository.save(new Waste());
 
