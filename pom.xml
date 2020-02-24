@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.javafaktura</groupId>
-	<artifactId>postgres-demo</artifactId>
+	<artifactId>waste-segregation-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>postgres-demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>waste-segregation-demo</name>
+	<description>Waste segregation</description>
 
 	<properties>
 		<java.version>11</java.version>

@@ -2,7 +2,6 @@ package com.javafaktura.wastesegregation.service;
 
 import com.javafaktura.wastesegregation.model.Waste;
 import com.javafaktura.wastesegregation.model.WasteBatch;
-import com.javafaktura.wastesegregation.model.WasteType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +9,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.javafaktura.wastesegregation.model.WasteType.*;
+import static com.javafaktura.wastesegregation.model.WasteType.METAL_AND_PLASTICS;
+import static com.javafaktura.wastesegregation.model.WasteType.OTHER_WASTE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SegregationMetricsTest {

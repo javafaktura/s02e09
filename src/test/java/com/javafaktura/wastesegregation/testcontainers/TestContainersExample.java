@@ -18,7 +18,6 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import java.math.BigDecimal;
 
 import static com.javafaktura.wastesegregation.model.WasteType.BIODEGRADABLE_WASTE;
-import static com.javafaktura.wastesegregation.model.WasteType.GLASS;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
