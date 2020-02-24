@@ -1,6 +1,7 @@
 package com.javafaktura.wastesegregation.service;
 
 import org.jetbrains.annotations.NotNull;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -10,6 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class WasteInventoryValueServiceTestNoMocks {
 
     @Test
+    @DisplayName("should return value of waste in inventory for given price")
     public void should_returnValue_OfWasteInInventory() {
         //given
         WasteValuationInterface wasteValuationServiceStub

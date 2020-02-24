@@ -27,6 +27,13 @@ public class Waste {
 
     private BigDecimal weight;
 
+    public Waste() {};
+
+    public Waste(WasteType type, BigDecimal weight) {
+        this.type = type;
+        this.weight = weight;
+    }
+
     public Long getId() {
         return id;
     }
@@ -72,11 +79,8 @@ public class Waste {
         if (this == o) return true;
         if (!(o instanceof Waste)) return false;
         Waste waste = (Waste) o;
-        return Objects.equals(getId(), waste.getId()) &&
-                Objects.equals(getWasteBatch(), waste.getWasteBatch()) &&
-                Objects.equals(getWasteBatchId(), waste.getWasteBatchId()) &&
-                getType() == waste.getType() &&
-                Objects.equals(getWeight(), waste.getWeight());
+        return  getType() == waste.getType() &&
+                getWeight().equals(waste.getWeight());
     }
 
     @Override

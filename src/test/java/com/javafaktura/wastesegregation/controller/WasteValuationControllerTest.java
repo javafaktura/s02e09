@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.javafaktura.wastesegregation.service.WasteValuationService;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -25,9 +26,14 @@ class WasteValuationControllerTest {
     private WasteValuationService service;
 
     @Test
+    @DisplayName("Should return price of unsorted waste")
     public void should_return_price_waste() throws Exception {
+        //given
         when(service.getPriceOfPlasticWasteType()).thenReturn(BigDecimal.ZERO);
-        this.mockMvc.perform(get("/wasteprice")).andDo(print()).andExpect(status().isOk())
+
+        //when then
+        this.mockMvc.perform(get("/wasteprice")).andDo(print())
+                .andExpect(status().isOk())
                 .andExpect(content().string("0"));
     }
 

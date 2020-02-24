@@ -1,5 +1,6 @@
 package com.javafaktura.wastesegregation.service;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -21,6 +22,7 @@ class WasteInventoryValueServiceTestMock {
     WasteValuationService wasteValuationServiceMock;
 
     @Test
+    @DisplayName("should return value of waste in inventory for given price")
     public void should_returnValue_OfWasteInInventory() {
         //given
         when(wasteValuationServiceMock.getPriceOfPlasticWasteType()).thenReturn(new BigDecimal("1000"));

@@ -4,6 +4,7 @@ import com.javafaktura.wastesegregation.model.Waste;
 import com.javafaktura.wastesegregation.repository.WasteRepository;
 import org.junit.ClassRule;
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,12 +15,14 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.testcontainers.containers.PostgreSQLContainer;
 
+import java.math.BigDecimal;
+
+import static com.javafaktura.wastesegregation.model.WasteType.BIODEGRADABLE_WASTE;
+import static com.javafaktura.wastesegregation.model.WasteType.GLASS;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-//todo - check wy can we use Junit5 here
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ExtendWith(SpringExtension.class)
 @ContextConfiguration(initializers = {TestContainersExample.Initializer.class})
 public class TestContainersExample {
 
@@ -44,9 +47,10 @@ public class TestContainersExample {
     private WasteRepository wasteRepository;
 
     @Test
+    @DisplayName("Should find saved waste by id")
     public void should_findSavedWasteEntity() {
         //given
-        Waste savedWaste = wasteRepository.save(new Waste());
+        Waste savedWaste = wasteRepository.save(new Waste(BIODEGRADABLE_WASTE, new BigDecimal("4.00")));
 
         //when
         Waste foundWaste = wasteRepository.findById(savedWaste.getId()).orElse(null);

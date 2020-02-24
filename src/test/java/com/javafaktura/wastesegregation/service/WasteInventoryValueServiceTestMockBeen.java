@@ -1,5 +1,6 @@
 package com.javafaktura.wastesegregation.service;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,6 +21,7 @@ class WasteInventoryValueServiceTestMockBeen {
     private WasteValuationService wasteValuationServiceMock;
 
     @Test
+    @DisplayName("should return value of waste in inventory for given price")
     public void should_returnValue_OfWasteInInventory() {
         //given
         when(wasteValuationServiceMock.getPriceOfPlasticWasteType()).thenReturn(new BigDecimal("1000"));

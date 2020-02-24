@@ -7,16 +7,11 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
-import java.util.Properties;
 
 @Configuration
 @EnableJpaRepositories(basePackages = { "com.javafaktura.wastesegregation" })
-@EnableTransactionManagement
 @Profile("test")
 public class H2TestConfig {
 
@@ -35,23 +30,4 @@ public class H2TestConfig {
         return dataSource;
     }
 
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[] { "com.javafaktura.wastesegregation" });
-        em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        em.setJpaProperties(additionalProperties());
-        return em;
-    }
-
-    final Properties additionalProperties() {
-        final Properties hibernateProperties = new Properties();
-
-        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-        hibernateProperties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
-        hibernateProperties.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-
-        return hibernateProperties;
-    }
 }
