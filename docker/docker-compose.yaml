@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+  postgres:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Start$$123
+      # You can use a $$ (double-dollar sign) when your configuration needs a literal dollar sign. To prevent docker-compose from interpolating values
+      POSTGRES_DB: waste_segregation
+      PGDATA: /data/postgres
+      #    volumes:
+      #      - ./postgres-data:/data/postgres
+    ports:
+     - 5432:5432
